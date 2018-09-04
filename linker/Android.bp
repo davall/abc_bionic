@@ -166,14 +166,12 @@ cc_binary {
         debuggable: {
             cppflags: ["-DUSE_LD_CONFIG_FILE"],
         },
-        lineage: {
-            needs_text_relocations: {
-                cppflags: ["-DTARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS"],
-            },
-        },
     },
 
-    cppflags: ["-Wold-style-cast"],
+    cppflags: [
+        "-DTARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS",
+        "-Wold-style-cast",
+    ],
 
     // we are going to link libc++_static manually because
     // when stl is not set to "none" build system adds libdl
